@@ -13,6 +13,4 @@ else:
         flag = True
     else:
       flag = False
-print(count)
-
-
+  print(count)
