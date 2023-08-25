@@ -4,7 +4,8 @@ def bfs():
     time = 0
               
     while dochi_q:
-        for _ in range(len(water_q)):
+        
+        for _ in range(len(water_q)): // 물 분사
             cx, cy = water_q.popleft()
             for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 nx, ny = cx + dx, cy + dy
@@ -12,11 +13,10 @@ def bfs():
                     water_q.append((nx, ny))
                     visited[nx][ny] = 1
 
-        for _ in range(len(dochi_q)):
+        for _ in range(len(dochi_q)): // 고슴도치 이동
             cx, cy = dochi_q.popleft()
             if map[cx][cy] == 'D':
                 return time
-
             for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 nx, ny = cx + dx, cy + dy
                 if 0 <= nx < r and 0 <= ny < c and (map[nx][ny] == '.' or map[nx][ny] == 'D') and visited[nx][ny] == 0:
