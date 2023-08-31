@@ -8,7 +8,7 @@ def bfs():
     while queue:
         current = queue.popleft()
         
-        for neighbor in adjacency_list[current]:
+        for neighbor in adj_list[current]:
             if visited[neighbor] == 0:
                 queue.append(neighbor)
                 visited[neighbor] = 1
@@ -18,12 +18,12 @@ def bfs():
 
 N = int(input())
 M = int(input())
-adjacency_list = [[] for _ in range(N + 1)]
+adj_list = [[] for _ in range(N + 1)]
 visited = [0] * (N + 1)  
 
 for _ in range(M):
     s, e = map(int, input().split())
-    adjacency_list[s].append(e)
-    adjacency_list[e].append(s)  
+    adj_list[s].append(e)
+    adj_list[e].append(s)  
 
 print(bfs())
