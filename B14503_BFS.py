@@ -19,7 +19,7 @@ def bfs():
         cx, cy = queue.popleft()
         
         for _ in range(4):
-            d = (d + 3) % 4
+            d = 3 if d == 0 else d - 1
             nx, ny = cx + dx[d], cy + dy[d]
             
             if 0 <= nx < n and 0 <= ny < m and visited[nx][ny] == 0 and room[nx][ny] == 0:
@@ -32,7 +32,7 @@ def bfs():
             if 0 <= nx < n and 0 <= ny < m and room[nx][ny] == 0:
                 queue.append((nx, ny))
             else:
-                return count
+                break
     
     return count
 
